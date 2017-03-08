@@ -8,6 +8,8 @@ from geocode import *
 
 with open('config.json') as json_data_file:
     data = json.load(json_data_file)
+    global fs_client_id
+    global fs_client_secret
     fs_client_id = data['foursquare_client_id']
     fs_client_secret = data['foursquare_client_secret']
 
@@ -20,7 +22,7 @@ def find_food(meal, location):
     # use foursquare to find a nearby restaurant
     # https://api.foursquare.com/v2/venues/search?v=20170212&ll
 
-    
+
     url = ('https://api.foursquare.com/v2/venues/search?v=20170212&ll=%s,%s&client_id=%s&client_secret=%s&query=%s' % (lat,lng,fs_client_id,fs_client_secret,meal))
     # tekee olion, jolla voi requestin tehdä
     h = httplib2.Http()

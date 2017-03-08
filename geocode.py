@@ -5,6 +5,7 @@ import json
 
 with open('config.json') as json_data_file:
     data = json.load(json_data_file)
+    global google_api_key
     google_api_key = data['google_api_key']
 
 
